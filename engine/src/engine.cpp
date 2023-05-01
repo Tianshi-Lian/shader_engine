@@ -1,7 +1,8 @@
 #include "engine.hpp"
 
-int
+i32
 test()
 {
+    std::cout << "Hello, World" << std::endl;
     return 1;
 }

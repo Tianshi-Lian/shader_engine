@@ -34,7 +34,8 @@ set_target_properties(${LIB_NAME} PROPERTIES
 
 if(ENABLE_PCH)
     target_precompile_headers(${LIB_NAME}
-        PRIVATE <string> <memory>
+        PUBLIC <string> <vector> <iomanip> <iostream>
+        PUBLIC <engine/core/types.hpp>
     )
 endif()
 

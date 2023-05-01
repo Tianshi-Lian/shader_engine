@@ -15,7 +15,7 @@ set_compiler_warnings(project_warnings)
 
 enable_static_analysis()
 
-option(ENABLE_PCH "Enable Precompiled Headers" OFF)
+option(ENABLE_PCH "Enable Precompiled Headers" ON)
 
 # Libraries
 add_subdirectory(engine)

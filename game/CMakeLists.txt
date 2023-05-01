@@ -30,7 +30,7 @@ set_target_properties(${APP_NAME} PROPERTIES
 
 if(ENABLE_PCH)
     target_precompile_headers(${APP_NAME}
-        PRIVATE <string> <memory>
+        PRIVATE <engine/core/types.hpp>
     )
 endif()
 
