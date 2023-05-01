@@ -3,6 +3,8 @@
 i32
 main()
 {
-    test();
-    return 0;
+    std::cout << "Shader Engine" << std::endl;
+
+    vmk::press_any_key_to_quit();
+    return Return_Code::RC_OK;
 }

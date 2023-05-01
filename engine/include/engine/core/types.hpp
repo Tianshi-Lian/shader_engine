@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-01 19:09:35
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-01 19:24:45
+ * Last Modified: 2023-05-01 19:48:59
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -25,3 +25,8 @@ using i64 = int64_t;
 
 using f32 = float;
 using f64 = double;
+
+enum Return_Code : i32 {
+    RC_OK = 0,
+    RC_ERROR = 1,
+};

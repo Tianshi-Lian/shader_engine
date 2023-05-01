@@ -1,8 +1,12 @@
 #include "engine.hpp"
 
-i32
-test()
+namespace vmk {
+
+void
+press_any_key_to_quit()
 {
-    std::cout << "Hello, World" << std::endl;
-    return 1;
+    std::cout << "Press any key to quit...";
+    _getch();
+}
+
 }
