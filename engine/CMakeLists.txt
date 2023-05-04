@@ -34,7 +34,7 @@ set_target_properties(${LIB_NAME} PROPERTIES
 
 if(ENABLE_PCH)
     target_precompile_headers(${LIB_NAME}
-        PRIVATE <string> <sstream> <vector> <iostream> <iomanip> <conio.h>
+        PRIVATE <array> <string> <sstream> <vector> <iostream> <iomanip> <conio.h>
         PRIVATE <engine/core/types.hpp>
     )
 endif()

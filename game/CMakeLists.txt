@@ -30,7 +30,7 @@ set_target_properties(${APP_NAME} PROPERTIES
 
 if(ENABLE_PCH)
     target_precompile_headers(${APP_NAME}
-        PRIVATE <string> <sstream> <vector> <iostream>
+        PRIVATE <array> <string> <sstream> <vector> <iostream>
         PRIVATE <engine/core/types.hpp> <engine/core/exception_handler.hpp>
     )
 endif()
