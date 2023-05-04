@@ -9,7 +9,9 @@ UseCRLF: false
 AccessModifierOffset: -2
 AlignAfterOpenBracket: BlockIndent
 AlignOperands: Align
-AlignTrailingComments: true
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 0
 AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: false
 AllowShortIfStatementsOnASingleLine: false
