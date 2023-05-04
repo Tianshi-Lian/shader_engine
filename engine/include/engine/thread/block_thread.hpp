@@ -3,13 +3,14 @@
  * Project: engine
  * File Created: 2023-05-02 21:22:33
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-02 21:25:16
+ * Last Modified: 2023-05-04 14:37:04
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
  */
 
-#pragma once
+#ifndef ENGINE_THREAD_BLOCK_THREAD_HPP
+#define ENGINE_THREAD_BLOCK_THREAD_HPP
 
 #include "engine/core/win32.hpp"
 
@@ -29,4 +30,6 @@ class Block_Thread {
     CRITICAL_SECTION* m_critical_section;
 };
 
-}
+} // namespace vmk
+
+#endif // ENGINE_THREAD_BLOCK_THREAD_HPP

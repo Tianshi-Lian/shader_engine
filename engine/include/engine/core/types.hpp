@@ -3,13 +3,14 @@
  * Project: engine
  * File Created: 2023-05-01 19:09:35
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-01 19:48:59
+ * Last Modified: 2023-05-04 14:33:09
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
  */
 
-#pragma once
+#ifndef ENGINE_CORE_TYPES_HPP
+#define ENGINE_CORE_TYPES_HPP
 
 #include <cstdint>
 
@@ -30,3 +31,5 @@ enum Return_Code : i32 {
     RC_OK = 0,
     RC_ERROR = 1,
 };
+
+#endif // ENGINE_CORE_TYPES_HPP

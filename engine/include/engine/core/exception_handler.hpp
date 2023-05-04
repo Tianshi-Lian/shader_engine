@@ -3,13 +3,14 @@
  * Project: engine
  * File Created: 2023-05-01 19:57:12
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-01 20:18:10
+ * Last Modified: 2023-05-04 14:33:03
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
  */
 
-#pragma once
+#ifndef ENGINE_CORE_EXCEPTION_HANDLER_HPP
+#define ENGINE_CORE_EXCEPTION_HANDLER_HPP
 
 namespace vmk {
 
@@ -31,3 +32,5 @@ class Exception_Handler : private std::runtime_error {
 };
 
 }
+
+#endif // ENGINE_CORE_EXCEPTION_HANDLER_HPP

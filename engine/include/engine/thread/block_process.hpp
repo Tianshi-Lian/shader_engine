@@ -3,13 +3,14 @@
  * Project: engine
  * File Created: 2023-05-02 21:10:00
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-02 21:17:00
+ * Last Modified: 2023-05-04 14:37:11
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
  */
 
-#pragma once
+#ifndef ENGINE_THREAD_BLOCK_PROCESS_HPP
+#define ENGINE_THREAD_BLOCK_PROCESS_HPP
 
 #include "engine/core/win32.hpp"
 
@@ -31,4 +32,6 @@ class Block_Process {
     HANDLE m_mutex;
 };
 
-}
+} // namespace vmk
+
+#endif // ENGINE_THREAD_BLOCK_PROCESS_HPP
