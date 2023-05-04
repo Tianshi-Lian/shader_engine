@@ -3,15 +3,13 @@
  * Project: engine
  * File Created: 2023-05-04 14:11:20
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-04 14:31:59
+ * Last Modified: 2023-05-04 15:06:30
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
  */
 
 #include "core/singleton.hpp"
-
-#include <array>
 
 #include "core/exception_handler.hpp"
 
@@ -41,7 +39,7 @@ Singleton::Singleton(Singleton::Type type)
 
         if (!s_singletons.at(new_singleton_id).is_constructed) {
             // Singletons are chained dependents
-            for (u32 i = 0; i < static_cast<u32>(Singleton::Type::COUNT); ++i) {
+            for (u32 i = 0; i < new_singleton_id; ++i) {
                 if (!s_singletons.at(i).is_constructed) {
                     throw Exception_Handler(
                         s_singletons.at(i).singleton_name + " must be constructed before " +
