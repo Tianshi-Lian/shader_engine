@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-01 19:57:12
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-04 14:33:03
+ * Last Modified: 2023-05-04 18:04:14
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -16,8 +16,8 @@ namespace vmk {
 
 class Exception_Handler : private std::runtime_error {
   public:
-    explicit Exception_Handler(std::string message);
-    explicit Exception_Handler(const std::ostringstream& stream_message);
+    explicit Exception_Handler(std::string message, bool log_to_file = true);
+    explicit Exception_Handler(const std::ostringstream& stream_message, bool log_to_file = true);
     ~Exception_Handler() override = default;
 
     [[nodiscard]] const std::string& get_message() const;

@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-04 14:39:15
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-04 15:10:25
+ * Last Modified: 2023-05-04 17:22:18
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -17,7 +17,7 @@
 #include "engine/core/win32.hpp"
 
 namespace vmk {
-class Logger : public Singleton {
+class Logger final : public Singleton {
   public:
     enum class Log_Level : u32 {
         L_INFO = 0,

@@ -3,6 +3,8 @@ target_sources(${LIB_NAME} PRIVATE
     core/exception_handler.cpp
     core/singleton.cpp
     debug/logger.cpp
+    filesystem/file_handler.cpp
+    filesystem/text_file_writer.cpp
     thread/block_process.cpp
     thread/block_thread.cpp
 )
