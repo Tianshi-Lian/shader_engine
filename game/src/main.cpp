@@ -16,7 +16,7 @@ main()
             return Return_Code::RC_OK;
         }
 
-        vmk::Logger logger("logs/log.dat");
+        vmk::Logger logger("log.dat");
         logger.log(vmk::Logger::Log_Level::L_INFO, game_name);
     }
     catch (vmk::Exception_Handler& exception) {

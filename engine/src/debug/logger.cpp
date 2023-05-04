@@ -3,13 +3,16 @@
  * Project: engine
  * File Created: 2023-05-04 14:45:55
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-04 15:12:54
+ * Last Modified: 2023-05-04 18:18:47
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
  */
 
 #include "debug/logger.hpp"
+
+#include "core/exception_handler.hpp"
+#include "filesystem/text_file_writer.hpp"
 #include "thread/block_thread.hpp"
 
 namespace vmk {
@@ -30,12 +33,19 @@ Logger::Logger(std::string log_filepath)
         }
     }
 
+    Exception_Handler::set_logger(this);
+
     InitializeCriticalSection(&m_critical_section);
+    Block_Thread block_thread(m_critical_section);
+
+    Text_File_Writer file(m_log_filepath, false, false);
 }
 
 Logger::~Logger()
 {
     DeleteCriticalSection(&m_critical_section);
+
+    Exception_Handler::set_logger(nullptr);
 }
 
 void
@@ -70,10 +80,18 @@ Logger::log(Log_Level level, const char* message)
     str_stream << " [" << m_log_types.at(static_cast<u32>(level)) << std::setfill(' ')
                << std::setw(static_cast<i32>(m_log_level_max_length)) << "] ";
 
-    // Message
+    // Write to console
     str_stream << message;
-
     std::cout << str_stream.str() << std::endl;
+
+    // Write to log file
+    try {
+        Text_File_Writer file(m_log_filepath, true, false);
+        file.write(str_stream.str());
+    }
+    catch (...) {
+        // Suppressed.
+    }
 }
 
 }
