@@ -3,21 +3,25 @@
 #include "engine/debug/logger.hpp"
 #include "engine/thread/block_process.hpp"
 
+#include "core/build_config.hpp"
+
 i32
 main()
 {
     try {
-        std::string game_name{ "Shader Engine" };
-
-        vmk::Block_Process blocker(game_name);
+        vmk::Block_Process blocker(vmk::g_game_name);
         if (blocker.is_blocked()) {
-            std::cout << "Error: " << game_name << " is already running..." << std::endl;
+            std::cout << "Error: " << vmk::g_game_name << " is already running..." << std::endl;
             vmk::press_any_key_to_quit();
             return Return_Code::RC_OK;
         }
 
+        std::ostringstream game_info;
+        game_info << vmk::g_game_name << " | Version " << vmk::g_major_version << "." << vmk::g_minor_version << "."
+                  << vmk::g_patch_version;
+
         vmk::Logger logger("log.dat");
-        logger.log(vmk::Logger::Log_Level::L_INFO, game_name);
+        logger.log(vmk::Logger::Log_Level::L_INFO, "Starting " + game_info.str());
     }
     catch (vmk::Exception_Handler& exception) {
         std::cout << "Exception thrown: " << exception.get_message() << std::endl;
