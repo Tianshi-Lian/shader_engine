@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-04 14:39:15
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-04 17:22:18
+ * Last Modified: 2023-05-05 18:05:29
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -29,9 +29,9 @@ class Logger final : public Singleton {
     explicit Logger(std::string log_filepath);
     ~Logger() override;
 
-    void log(Log_Level level, const std::string& message);
-    void log(Log_Level level, const std::ostringstream& message);
-    void log(Log_Level level, const char* message);
+    static void log(Log_Level level, const std::string& message);
+    static void log(Log_Level level, const std::ostringstream& message);
+    static void log(Log_Level level, const char* message);
 
     Logger(const Logger&) = default;
     Logger(Logger&&) = delete;

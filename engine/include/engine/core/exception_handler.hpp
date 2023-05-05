@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-01 19:57:12
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-04 18:11:59
+ * Last Modified: 2023-05-05 18:05:18
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -14,15 +14,11 @@
 
 namespace vmk {
 
-class Logger;
-
 class Exception_Handler : private std::runtime_error {
   public:
     explicit Exception_Handler(std::string message, bool log_to_file = true);
     explicit Exception_Handler(const std::ostringstream& stream_message, bool log_to_file = true);
     ~Exception_Handler() override = default;
-
-    static void set_logger(Logger* logger);
 
     [[nodiscard]] const std::string& get_message() const;
 
@@ -32,8 +28,6 @@ class Exception_Handler : private std::runtime_error {
     Exception_Handler& operator=(Exception_Handler&&) = delete;
 
   private:
-    static Logger* s_logger;
-
     std::string m_message;
 };
 
