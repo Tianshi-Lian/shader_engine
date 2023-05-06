@@ -1,6 +1,7 @@
 target_sources(${LIB_NAME} PRIVATE
     engine.cpp
     core/exception_handler.cpp
+    core/settings.cpp
     core/singleton.cpp
     debug/logger.cpp
     filesystem/file_handler.cpp

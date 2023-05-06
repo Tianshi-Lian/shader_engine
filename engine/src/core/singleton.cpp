@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-04 14:11:20
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-05 18:02:21
+ * Last Modified: 2023-05-06 20:02:15
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -25,7 +25,8 @@ struct Singleton_Info {
     }
 };
 
-std::array<Singleton_Info, static_cast<size_t>(vmk::Singleton::Type::COUNT)> s_singletons = { Singleton_Info("Logger") };
+std::array<Singleton_Info, static_cast<size_t>(vmk::Singleton::Type::COUNT)> s_singletons = { Singleton_Info("Logger"),
+                                                                                              Singleton_Info("Settings") };
 
 }
 

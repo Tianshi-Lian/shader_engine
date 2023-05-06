@@ -1,5 +1,6 @@
 #include "engine/engine.hpp"
 
+#include "engine/core/settings.hpp"
 #include "engine/debug/logger.hpp"
 #include "engine/thread/block_process.hpp"
 
@@ -22,6 +23,9 @@ main()
 
         vmk::Logger logger("log.dat");
         logger.log(vmk::Logger::Log_Level::L_INFO, "Starting " + game_info.str());
+
+        vmk::Settings settings;
+        logger.log(vmk::Logger::Log_Level::L_INFO, settings.show_summary());
     }
     catch (vmk::Exception_Handler& exception) {
         std::cout << "Exception thrown: " << exception.get_message() << std::endl;
