@@ -26,6 +26,7 @@ main(i32 argc, char* argv[])
         // Debug settings
         {
             settings.set_windowed_mode(true);
+            settings.set_game_size({ 1600, 900 });
             settings.set_rng_seed(1337);
             settings.set_stat_logging(true);
         }
@@ -100,6 +101,9 @@ main(i32 argc, char* argv[])
             out = "42";
             u32 u_out = vmk::Utils::to_u32(out);
             std::cout << u_out << std::endl;
+
+            v2 value{ 1, 3 };
+            std::cout << value.y << std::endl;
         }
     }
     catch (vmk::Exception_Handler& exception) {

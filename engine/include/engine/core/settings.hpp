@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-06 19:53:06
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-07 15:27:42
+ * Last Modified: 2023-05-07 17:43:24
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -26,10 +26,13 @@ class Settings : public Singleton {
     void set_rng_seed(u64 seed);
     void set_windowed_mode(bool is_windowed);
     void set_stat_logging(bool enable);
+    void set_game_size(const v2u& size);
 
     [[nodiscard]] f64 get_physics_step_seconds() const;
-    [[nodiscard]] bool is_windowed_mode() const;
-    [[nodiscard]] bool is_stat_logging_enable() const;
+    [[nodiscard]] bool get_windowed_mode() const;
+    [[nodiscard]] bool get_stat_logging_enable() const;
+    [[nodiscard]] const v2u& get_game_size() const;
+
     [[nodiscard]] std::string show_summary() const;
 
     Settings(const Settings&) = default;
@@ -39,9 +42,10 @@ class Settings : public Singleton {
 
   private:
     u32 m_physics_update_rate;
-    bool m_windowed_mode;
     u64 m_rng_seed;
+    bool m_windowed_mode;
     bool m_enable_stats_log;
+    v2u m_game_size;
 };
 
 }
