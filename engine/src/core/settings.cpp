@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-06 19:58:06
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-06 20:14:14
+ * Last Modified: 2023-05-07 15:28:52
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -88,6 +88,7 @@ Settings::show_summary() const
     out_stream << "    Seed Value: " << m_rng_seed << "\n";
     out_stream << "    Display Mode: " << (m_windowed_mode ? "Windowed" : "Fullscreen") << "\n";
     out_stream << "    Physics Refresh: " << m_physics_update_rate << " Hz\n";
+    out_stream << "    Stats Logging: " << (m_enable_stats_log ? "Enabled" : "Disabled") << "\n";
 
     return out_stream.str();
 }

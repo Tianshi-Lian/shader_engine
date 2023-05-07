@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-06 20:16:19
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-06 20:32:10
+ * Last Modified: 2023-05-07 15:42:00
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -11,6 +11,8 @@
 
 #ifndef ENGINE_CORE_UTILS_HPP
 #define ENGINE_CORE_UTILS_HPP
+
+#include <cxxabi.h>
 
 #include "engine/core/exception_handler.hpp"
 #include "engine/debug/logger.hpp"
@@ -35,18 +37,24 @@ class Utils {
         std::istringstream input(value);
         input >> format >> output;
 
+        const std::type_info& info = typeid(output);
+        char* type_name = abi::__cxa_demangle(info.name(), nullptr, nullptr, nullptr);
+
         if (!input) {
             std::ostringstream str_stream;
-            str_stream << __FUNCTION__ << " failed to convert " << value << " to type " << typeid(output).name();
+            str_stream << __FUNCTION__ << " failed to convert " << value << " to type " << type_name;
             throw Exception_Handler(str_stream);
         }
 
         char first_char = 0;
         if (input.get(first_char)) {
             std::ostringstream str_stream;
-            str_stream << __FUNCTION__ << " conversion of " << value << " to type " << typeid(output).name() << " = " << output;
+            str_stream << __FUNCTION__ << " conversion of " << value << " to type " << type_name << " = " << output;
             Logger::log(Logger::Log_Level::L_WARNING, str_stream);
         }
+
+        std::free(type_name);
+
         return output;
     }
 };
