@@ -1,4 +1,5 @@
 target_sources(${LIB_NAME} PUBLIC
+    engine.hpp
     core/exception_handler.hpp
     core/settings.hpp
     core/singleton.hpp

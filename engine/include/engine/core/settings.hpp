@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-06 19:53:06
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-07 17:43:24
+ * Last Modified: 2023-05-07 18:26:01
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -33,7 +33,7 @@ class Settings : public Singleton {
     [[nodiscard]] bool get_stat_logging_enable() const;
     [[nodiscard]] const v2u& get_game_size() const;
 
-    [[nodiscard]] std::string show_summary() const;
+    [[nodiscard]] std::string get_summary() const;
 
     Settings(const Settings&) = default;
     Settings(Settings&&) = delete;

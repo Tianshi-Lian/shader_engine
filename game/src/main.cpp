@@ -1,10 +1,11 @@
-
 #include "engine/core/settings.hpp"
 #include "engine/core/utils.hpp"
 #include "engine/debug/logger.hpp"
 #include "engine/thread/block_process.hpp"
 
 #include "core/build_config.hpp"
+
+#include "game.hpp"
 
 i32
 main(i32 argc, char* argv[])
@@ -86,25 +87,10 @@ main(i32 argc, char* argv[])
             }
         }
 
-        logger.log(vmk::Logger::Log_Level::L_INFO, settings.show_summary());
+        logger.log(vmk::Logger::Log_Level::L_INFO, settings.get_summary());
 
-        // Test code
-        {
-            std::string out{ "value" };
-
-            out = vmk::Utils::to_upper(out);
-            logger.log(vmk::Logger::Log_Level::L_INFO, out);
-
-            out = vmk::Utils::to_lower(out);
-            logger.log(vmk::Logger::Log_Level::L_INFO, out);
-
-            out = "42";
-            u32 u_out = vmk::Utils::to_u32(out);
-            std::cout << u_out << std::endl;
-
-            v2 value{ 1, 3 };
-            std::cout << value.y << std::endl;
-        }
+        vmk::Game game;
+        game.start();
     }
     catch (vmk::Exception_Handler& exception) {
         std::cout << "Exception thrown: " << exception.get_message() << std::endl;

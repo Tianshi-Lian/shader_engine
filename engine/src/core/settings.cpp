@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-06 19:58:06
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-07 17:47:32
+ * Last Modified: 2023-05-07 18:26:04
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -93,7 +93,7 @@ Settings::get_game_size() const
 }
 
 std::string
-Settings::show_summary() const
+Settings::get_summary() const
 {
     std::ostringstream out_stream;
     out_stream << "Game Settings:\n";

@@ -3,7 +3,7 @@
  * Project: engine
  * File Created: 2023-05-04 14:08:41
  * Author: Rob Graham (robgrahamdev@gmail.com)
- * Last Modified: 2023-05-06 20:01:10
+ * Last Modified: 2023-05-07 17:56:26
  * ------------------
  * Copyright 2023 Rob Graham
  * ==================
@@ -19,6 +19,7 @@ class Singleton {
     enum class Type : u32 {
         Logger = 0,
         Settings,
+        Engine,
         COUNT
     };
 
