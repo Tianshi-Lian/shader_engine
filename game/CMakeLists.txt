@@ -36,7 +36,7 @@ if(ENABLE_PCH)
 endif()
 
 target_link_libraries(${APP_NAME}
-    PRIVATE project_options project_warnings engine
+    PRIVATE project_options project_warnings engine glm
 )
 
 install(
